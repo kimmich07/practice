@@ -6,6 +6,7 @@ securityPin = None
 secretMessage = "Why am I so handsome? haist di ko rin alam :<"
 
 def menu():
+    #This will print the menu and will ask the user for a choice
     print("MENU")
     print("[0] Exit Program")
     print("[1] Unlock Secret Message")
@@ -14,6 +15,7 @@ def menu():
     return num
 
 def secret_message(securityPin):
+    #It will check if there is a Security PIN, if none, then it will ask for a PIN
     if securityPin is None:
         print("No Security PIN!")
         while securityPin is None:
@@ -24,16 +26,21 @@ def secret_message(securityPin):
                 securityPin = newpin
                 print("Security PIN enabled!")
                 return securityPin
+    #If there is a PIN, it will ask for a PIN to validate
     else:
+        #If PIN is correct, it will print the secret message
         inputPin = input("Enter PIN: ")
         if inputPin == securityPin:
             print (secretMessage)
             return securityPin
         else:
+        #If PIN is not correct, it will not print the secret message
             print ("Entered PIN is incorrect")
             return securityPin
 
+#It will allow the user to change the PIN
 def manage_pin(securityPin):
+    #It will check if there is a Security PIN, if none, then it will ask for a PIN
     if securityPin is None:
         print("No Security PIN!")
         while securityPin is None:
@@ -44,7 +51,9 @@ def manage_pin(securityPin):
                 securityPin = newpin
                 print ("Entered PIN is incorrect")
                 return securityPin
+    #If there is a PIN, it will ask for a PIN to validate
     else:
+        #If PIN is correct, it will allow the user to change the PIN
         inputPin = input("Enter PIN: ")
         if inputPin == securityPin:
             managing_pin = True
@@ -56,6 +65,7 @@ def manage_pin(securityPin):
                     securityPin = newpin
                     print("Security PIN changed!")
                     return securityPin
+        #If PIN is not correct, it will not allow the user to change the PIN       
         else:
             print ("Entered PIN is incorrect")
             return securityPin
